@@ -85,13 +85,24 @@ header {
 }
 
 .logo {
-  display: flex;
-  align-items: center;
+  /* These properties stay on the main container */
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--text-head);
 }
+
+.logo a {
+  /* This is the new flex container */
+  display: flex;
+  align-items: center;
+
+  /* Styling for the link itself */
+  text-decoration: none; /* Removes underline */
+  color: var(--text-head); /* Sets text color */
+  gap: 0.5rem; /* Optional: adds space between image and text */
+}
+
 .logo img {
+  /* This rule remains the same */
   width: 70px;
   height: 70px;
   background-image: transparent;
@@ -133,8 +144,6 @@ header {
   color: var(--secondary-color);
 }
 
-/* === New Auth Button Styles === */
-
 /* Style for the new "Login" button */
 .btn.btn-secondary {
   background-color: transparent;
@@ -158,8 +167,6 @@ header {
   align-items: center;
   gap: 2rem;
 }
-
-/* === Responsive Tweaks for New Buttons === */
 
 @media (width < 900px) {
   /* Stack all button groups vertically in the mobile menu */

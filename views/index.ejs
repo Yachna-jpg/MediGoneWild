@@ -24,31 +24,33 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
     <script src="/functionality/function.js" defer></script>
   </head>
   <body>
     <header id="home">
       <%- include('partials/header') %>
+
       <div class="section-container header-container">
-        <div class="head-content">
+        <div
+          class="head-content"
+          data-aos="fade-right"
+          data-aos-duration="1000"
+        >
           <h1>Delivering an Outstanding Care Journey for Patients</h1>
           <p style="font-size: 18px; color: whitesmoke">
             <b>
               Welcome to MediGoneWild, where compassionate care meets advanced
               medical expertise. Our hospital is dedicated to providing
-              high-quality healthcare services with state-of-the-art facilities,
-              experienced doctors, and a patient-first approach. From emergency
-              care to specialized treatments, we strive to ensure every patient
-              receives personalized attention in a safe and healing environment.
-              Your health and well-being are our top priorities — because we
-              care for you like family.
+              high-quality healthcare services...
             </b>
           </p>
           <button class="btn">
             Get Services <i class="fa-solid fa-arrow-right"></i>
           </button>
         </div>
-        <div class="header-form">
+        <div class="header-form" data-aos="fade-left" data-aos-duration="1000">
           <form action="#" id="form">
             <h4>Book Appointment</h4>
             <input type="text" placeholder="First Name" id="firstName" />
@@ -60,25 +62,21 @@
         </div>
       </div>
     </header>
+
     <main>
       <section class="section-container service-container" id="service">
-        <div class="service-head">
+        <div class="service-head" data-aos="fade-up">
           <div class="service-head-content">
             <h2 class="section-header">Our Sevices</h2>
             <p>
               we offer comprehensive healthcare services with advanced
-              facilities and expert doctors. Our key areas include general
-              medicine, emergency care, cardiology, orthopedics, gynecology,
-              pediatrics, and diagnostics. We are committed to providing
-              compassionate, affordable, and quality medical care for patients
-              of all ages, every day.
+              facilities and expert doctors...
             </p>
           </div>
           <button class="service-btn">Ask a Service</button>
         </div>
         <div class="service-grid">
-          <!--Card: 01-->
-          <div class="service-card">
+          <div class="service-card" data-aos="fade-up" data-aos-delay="200">
             <span><i class="fa-solid fa-vial-virus"></i></span>
             <h4>Laboratory Test</h4>
             <p>
@@ -87,8 +85,7 @@
             </p>
             <a href="#">Learn More <i class="fa-solid fa-arrow-right"></i></a>
           </div>
-          <!--Card: 02-->
-          <div class="service-card">
+          <div class="service-card" data-aos="fade-up" data-aos-delay="300">
             <span><i class="fa-solid fa-user-nurse"></i></span>
             <h4>Health Checkups</h4>
             <p>
@@ -97,8 +94,7 @@
             </p>
             <a href="#">Learn More <i class="fa-solid fa-arrow-right"></i></a>
           </div>
-          <!--Card: 03-->
-          <div class="service-card">
+          <div class="service-card" data-aos="fade-up" data-aos-delay="400">
             <span><i class="fa-solid fa-truck-medical"></i></span>
             <h4>Ambulatory care</h4>
             <p>
@@ -111,39 +107,27 @@
       </section>
 
       <section class="section-container about-container" id="about">
-        <div class="about-content">
+        <div class="about-content" data-aos="fade-right">
           <h2 class="section-header">About Us</h2>
           <p>
             MediGoneWild is a leading healthcare center committed to providing
-            high-quality medical care with compassion and excellence. Our
-            hospital is equipped with advanced technology, modern
-            infrastructure, and a dedicated team of experienced doctors, nurses,
-            and support staff. We offer a wide range of services — from
-            emergency care to specialized treatments — all under one roof. At
-            MediGoneWild, we believe every patient deserves personalized
-            attention, transparency, and comfort throughout their healing
-            journey. Our mission is to create a healthier community by combining
-            medical expertise with genuine care and trust.
+            high-quality medical care with compassion and excellence...
           </p>
         </div>
-        <div class="about-img">
+        <div class="about-img" data-aos="fade-left">
           <img src="./assets/about.jpg" alt="About us" />
         </div>
       </section>
 
       <section class="section-container whyUs-container">
-        <div class="whyUs-img">
+        <div class="whyUs-img" data-aos="fade-right">
           <img src="./assets/whyUs.jpg" alt="Why Choose Us" />
         </div>
-        <div class="whyUs-content">
+        <div class="whyUs-content" data-aos="fade-left">
           <h2 class="section-header">Why Choose Us?</h2>
           <p>
             At MediGoneWild, we combine advanced medical technology with
-            compassionate care. Our experienced doctors, 24/7 emergency
-            services, and patient-focused approach ensure the highest standards
-            of treatment. We offer affordable, transparent healthcare in a
-            clean, safe environment — because your health, comfort, and trust
-            are always our top priorities
+            compassionate care...
           </p>
           <div class="features">
             <span><i class="fa-solid fa-user-doctor"></i></span>
@@ -173,7 +157,62 @@
           </div>
         </div>
       </section>
+
+      <section class="section-container doctors-container">
+        <h2
+          class="section-header"
+          style="text-align: center"
+          data-aos="fade-up"
+        >
+          Meet Our Experts
+        </h2>
+        <div class="doctor-grid">
+          <div class="doctor-card" data-aos="fade-right" data-aos-delay="200">
+            <img
+              src="/assets/doctors/doctor-1.jpg"
+              alt="Dr. Emily White"
+              class="doctor-card-img"
+            />
+            <div class="doctor-card-content">
+              <h3>Dr. Emily White</h3>
+              <p class="specialty">Cardiologist</p>
+            </div>
+          </div>
+          <div class="doctor-card" data-aos="fade-right" data-aos-delay="300">
+            <img
+              src="/assets/doctors/doctor-2.jpg"
+              alt="Dr. James Brown"
+              class="doctor-card-img"
+            />
+            <div class="doctor-card-content">
+              <h3>Dr. James Brown</h3>
+              <p class="specialty">Orthopedic Surgeon</p>
+            </div>
+          </div>
+          <div class="doctor-card" data-aos="fade-right" data-aos-delay="400">
+            <img
+              src="/assets/doctors/doctor-3.jpg"
+              alt="Dr. Sarah Lee"
+              class="doctor-card-img"
+            />
+            <div class="doctor-card-content">
+              <h3>Dr. Sarah Lee</h3>
+              <p class="specialty">Pediatrician</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
-    <%- include('partials/footer.ejs') %>
+
+    <%- include('partials/footer') %>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        once: true, // Whether animation should happen only once
+        duration: 800, // Animation duration in ms
+        easing: "ease-in-out", // Default easing
+      });
+    </script>
   </body>
 </html>
