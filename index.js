@@ -26,10 +26,34 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.set("trust proxy", 1);
 
+// Main Page Route
 app.get("/", async (req, res) => {
   res.render("index");
 });
 
+// Other Routes
+
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+
+app.get("/signup", (req, res) => {
+  res.render("signup");
+});
+
+app.get("/services", (req, res) => {
+  res.render("services");
+});
+
+app.get("/doctors", (req, res) => {
+  res.render("doctors");
+});
+
+app.get("/dashboard", (req, res) => {
+  res.render("dashboard");
+});
+
+// === Server Start ===
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

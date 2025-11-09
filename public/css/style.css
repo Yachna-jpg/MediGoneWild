@@ -133,6 +133,52 @@ header {
   color: var(--secondary-color);
 }
 
+/* === New Auth Button Styles === */
+
+/* Style for the new "Login" button */
+.btn.btn-secondary {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.btn.btn-secondary:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+/* Container for the new auth buttons */
+.nav-auth-btns {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Make the main nav container align all items (links and buttons) */
+.nav-link-container {
+  align-items: center;
+  gap: 2rem;
+}
+
+/* === Responsive Tweaks for New Buttons === */
+
+@media (width < 900px) {
+  /* Stack all button groups vertically in the mobile menu */
+  .contact-btn {
+    margin-top: 2rem;
+  }
+
+  .nav-auth-btns {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .nav-auth-btns .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
 .header-container {
   display: flex;
   align-items: center;
