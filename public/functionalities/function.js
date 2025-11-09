@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("click", (e) => {
     if (
       userMenuBtn &&
+      userDropdown && // Check if dropdown exists
       !userMenuBtn.contains(e.target) &&
       !userDropdown.contains(e.target)
     ) {
