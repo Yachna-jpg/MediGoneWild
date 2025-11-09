@@ -1,8 +1,8 @@
 <nav class="section-container nav-container">
   <div class="logo">
-    <a href="/"
-      ><img src="/assets/mediGo.png" alt="logo" /> <span>MediGoneWild</span></a
-    >
+    <a href="/">
+      <img src="/assets/mediGo.png" alt="logo" /> <span>MediGoneWild</span>
+    </a>
   </div>
   <span id="nav-label" hidden>navigation</span>
   <div class="nav-link-container" role="dialog" aria-labelledby="nav-label">
@@ -11,25 +11,45 @@
     </button>
     <ul class="nav-links">
       <li class="link">
-        <a class="item-link" href="#home" data-scroll>Home</a>
+        <a class="item-link" href="/" data-scroll>Home</a>
       </li>
       <li class="link">
-        <a class="item-link" href="#about" data-scroll>About Us</a>
+        <a class="item-link" href="/#about" data-scroll>About Us</a>
       </li>
       <li class="link">
-        <a class="item-link" href="#service" data-scroll>Services</a>
+        <a class="item-link" href="/services" data-scroll>Services</a>
       </li>
       <li class="link">
-        <a class="item-link" href="#" data-scroll>Pages</a>
+        <a class="item-link" href="/doctors" data-scroll>Doctors</a>
       </li>
       <li class="link">
         <a class="item-link" href="#" data-scroll>Blogs</a>
       </li>
     </ul>
     <button class="btn contact-btn">Contact Us</button>
-  </div>
-  <div class="nav-auth-btns">
-    <a href="/login" class="btn btn-secondary">Login</a>
-    <a href="/signup" class="btn">Sign Up</a>
+
+    <% if (user) { %>
+    <div class="user-menu">
+      <button class="btn user-menu-btn" id="userMenuBtn">
+        <i class="fa-solid fa-user-circle"></i>
+        Hi, <%= user.first_name || user.email %>
+        <i class="fa-solid fa-chevron-down"></i>
+      </button>
+      <div class="user-dropdown" id="userDropdown">
+        <a href="/dashboard">
+          <i class="fa-solid fa-table-columns"></i> Dashboard
+        </a>
+        <a href="/settings"> <i class="fa-solid fa-gear"></i> Settings </a>
+        <a href="/logout">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </a>
+      </div>
+    </div>
+    <% } else { %>
+    <div class="nav-auth-btns">
+      <a href="/login" class="btn btn-secondary">Login</a>
+      <a href="/signup" class="btn">Sign Up</a>
+    </div>
+    <% } %>
   </div>
 </nav>
