@@ -219,7 +219,6 @@ app.post("/chat", async (req, res) => {
   const { message } = req.body;
 
   try {
-    // This is the "innovation" from your CareFlow project.
     // We give the bot a persona and rules.
     const systemPrompt = `
       You are a helpful and friendly assistant for MediGoneWild, a hospital.
