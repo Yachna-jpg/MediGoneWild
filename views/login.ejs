@@ -6,11 +6,11 @@
     <link rel="stylesheet" href="/css/auth.css" />
   </head>
   <body>
-    <%- include('header') %>
+    <%- include('partials/header') %>
     <main>
       <section class="auth-container">
         <form action="/login" method="POST" class="auth-form">
-          <h2>Patient Login</h2>
+          <h2>Login</h2>
           <input
             type="email"
             name="email"
@@ -40,6 +40,6 @@
         </form>
       </section>
     </main>
-    <%- include('footer') %>
+    <%- include('partials/footer') %>
   </body>
 </html>

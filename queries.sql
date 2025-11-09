@@ -1,0 +1,9 @@
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  google_id VARCHAR(255) UNIQUE,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  first_name VARCHAR(100),
+  last_name VARCHAR(100),
+  profile_pic TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
