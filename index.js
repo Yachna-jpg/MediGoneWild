@@ -161,7 +161,26 @@ app.get("/dashboard", (req, res) => {
   res.render("dashboard");
 });
 
-// NEW: === Passport Local Strategy ===
+// === Patient Portal Route ===
+app.get("/dashboard", (req, res) => {
+  if (!req.user) return res.redirect("/login"); // Protect this route
+  res.render("dashboard"); // user is already passed via middleware
+});
+
+// NEW: Appointments Route
+app.get("/my-appointments", (req, res) => {
+  if (!req.user) return res.redirect("/login"); // Protect this route
+  // In the future, you'll fetch appointments from your database
+  res.render("my-appointments", { appointments: [] }); // Pass user from middleware
+});
+
+// NEW: Profile/Edit Route
+app.get("/my-profile", (req, res) => {
+  if (!req.user) return res.redirect("/login"); // Protect this route
+  res.render("my-profile"); // Pass user from middleware
+});
+
+// Passport Local Strategy
 // This strategy is for verifying email/password logins
 passport.use(
   new LocalStrategy(
@@ -201,8 +220,7 @@ passport.use(
   )
 );
 
-// === Passport Google OAuth Strategy ===
-// (This section is unchanged)
+// Passport Google OAuth Strategy
 passport.use(
   new GoogleStrategy(
     {
@@ -251,7 +269,7 @@ passport.use(
   )
 );
 
-// === Passport Google Auth Routes ===
+// Passport Google Auth Routes
 app.get(
   "/auth/google",
   passport.authenticate("google", { scope: ["profile", "email"] })
