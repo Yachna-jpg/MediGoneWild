@@ -44,11 +44,11 @@
   </div>
   <% if (user) { %>
   <div class="chat-bubble" id="chat-bubble">
-    <i class="fa-solid fa-comment-dots"></i>
+    <img src="/assets/mediGo.png" alt="Chatbot Logo" />
   </div>
 
   <div class="chat-window" id="chat-window">
-    <div class="chat-header">CareFlow Assist</div>
+    <div class="chat-header">MediGoWild Assist</div>
     <div class="chat-messages" id="chat-messages">
       <div class="chat-message bot">
         Hi <%= user.first_name %>! How can I help you today?
@@ -62,10 +62,19 @@
         placeholder="Ask a question..."
       />
       <button type="submit" class="chat-send-btn">
-        <i class="fa-solid fa-paper-plane"></i>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="send-arrow-icon"
+        >
+          <path
+            d="M3.478 2.405a.75.75 0 0 0-.926.94l2.432 7.905H13.5a.75.75 0 0 1 0 1.5H4.984l-2.432 7.905a.75.75 0 0 0 .926.94 60.519 60.519 0 0 0 18.445-8.986.75.75 0 0 0 0-1.218A60.517 60.517 0 0 0 3.478 2.405Z"
+          />
+        </svg>
       </button>
     </form>
   </div>
   <% } %>
-  <script src="/js/chatbot.js"></script>
+  <script src="/functionalities/chatbot.js"></script>
 </footer>

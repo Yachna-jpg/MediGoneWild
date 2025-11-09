@@ -22,6 +22,12 @@
   transform: scale(1.1);
 }
 
+.chat-bubble img {
+  width: 60%; /* Controls the size of the logo */
+  height: 60%;
+  object-fit: contain;
+}
+
 .chat-window {
   position: fixed;
   bottom: 6rem;
@@ -110,4 +116,12 @@
   padding: 0 1rem;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.chat-send-btn .send-arrow-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  /* Helps center the icon perfectly inside the button */
+  display: block;
+  margin: auto;
 }
