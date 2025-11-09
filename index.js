@@ -1,58 +1,36 @@
-const btnOpen = document.querySelector("#btn-open");
-const btnClose = document.querySelector("#btn-close");
-//Show small screen menu to accessibility tools only when the below screen size matches
-const media = window.matchMedia("(width < 900px)");
-const navLinkContainer = document.querySelector(".nav-link-container");
-const navLinks = document.querySelectorAll("[data-scroll]");
+import express from "express";
+import pg from "pg";
+import session from "express-session";
+import path from "path";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+import dotenv from "dotenv";
 
-function setUpNav(e) {
-  if (e.matches) {
-    //is mobile
-    console.log("Is mobile");
-    navLinkContainer.setAttribute("inert", "");
-    // set transition value to none when screen size changes
-    navLinkContainer.style.transition = "none";
-  } else {
-    //is tablet/desktop
-    console.log("is desktop");
-    navLinkContainer.removeAttribute("inert");
-    //close menu automatically when user switch from mobile to desktop
-    closeMobileMenu();
-  }
-}
+dotenv.config();
 
-// Open menu
-function openMobileMenu() {
-  btnOpen.setAttribute("aria-expanded", "true");
-  navLinkContainer.removeAttribute("inert");
-  navLinkContainer.removeAttribute("style");
-  btnClose.focus();
-}
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-// Close menu
-function closeMobileMenu() {
-  btnOpen.setAttribute("aria-expanded", "false");
-  btnOpen.focus();
-
-  // set transition value to none when menu is closed
-  setTimeout(() => {
-    navLinkContainer.style.transition = "none";
-  }, 500);
-}
-setUpNav(media); //run after whole content is loaded
-
-btnOpen.addEventListener("click", openMobileMenu);
-btnClose.addEventListener("click", closeMobileMenu);
-
-media.addEventListener("change", function (e) {
-  setUpNav(e);
+const NUMERIC_OID = 1700;
+pg.types.setTypeParser(NUMERIC_OID, (value) => {
+  return value === null ? null : parseFloat(value);
 });
 
+const app = express();
 
-navLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    if (media.matches) {
-      closeMobileMenu();
-    }
-  });
+// Middleware
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+app.use(express.static(path.join(__dirname, "public")));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.set("trust proxy", 1);
+
+app.get("/", async (req, res) => {
+  res.render("index");
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
